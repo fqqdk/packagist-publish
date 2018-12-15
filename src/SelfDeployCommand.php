@@ -86,7 +86,7 @@ class SelfDeployCommand
     {
         return \GuzzleHttp\Psr7\uri_for("{$this->packagistUrl}api/update-package")->withQuery(http_build_query(array(
             'username' => $this->userName,
-            'apiToke' => $this->apiToken,
+            'apiToken' => $this->apiToken,
         )));
     }
 
