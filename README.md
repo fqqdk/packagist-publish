@@ -6,6 +6,9 @@ in your composer.json:
 
 ```json
 {
+    "require-dev": {
+        "fqqdk/packagist-self-deploy": "*"
+    },
     "scripts": {
         "deploy": "Packagist\\SelfDeployCommand::main"
     }
