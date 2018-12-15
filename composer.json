@@ -1,0 +1,17 @@
+{
+  "name": "fqqdk/packagist-self-deploy",
+  "description": "Use this package as a developer dependency to have handy composer script to deploy your package to packagist",
+  "require": {
+    "php": ">=5.4.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "composer/composer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fqqdk\\Packagist\\": "src/"
+    }
+  },
+  "scripts": {
+    "deploy": "Fqqdk\\Packagist\\SelfDeployCommand::main"
+  }
+}
