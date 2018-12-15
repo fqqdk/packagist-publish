@@ -84,10 +84,11 @@ class SelfDeployCommand
 
     private function getApiUrl()
     {
-        return \GuzzleHttp\Psr7\uri_for("{$this->packagistUrl}api/update-package")->withQuery(http_build_query(array(
-            'username' => $this->userName,
-            'apiToken' => $this->apiToken,
-        )));
+        return \GuzzleHttp\Psr7\uri_for("{$this->packagistUrl}api/update-package")
+            ->withQuery(http_build_query(array(
+                'username' => $this->userName,
+                'apiToken' => $this->apiToken,
+            )));
     }
 
     private function getPayLoad($packageName)
