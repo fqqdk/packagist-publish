@@ -21,5 +21,8 @@
   "scripts": {
     "publish": "Fqqdk\\Packagist\\SelfPublisher::main"
   },
+  "archive": {
+    "exclude": ["/test"]
+  },
   "license": "MIT"
 }
