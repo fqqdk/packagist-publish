@@ -3,7 +3,8 @@
 namespace Fqqdk\Packagist;
 
 use Exception;
-use GuzzleHttp\Client;
+use Guzzle\Http\Client;
+use Guzzle\Http\Url;
 
 class Publisher
 {
@@ -51,11 +52,12 @@ class Publisher
      */
     public function updatePackage($packageName)
     {
-        $response = \GuzzleHttp\json_decode($this->client
-            ->post($this->getApiUrl(), array('json' => $this->getPayLoad($packageName)))
-            ->getBody()->getContents(), true);
+        $apiUrl = (string)$this->getApiUrl();
+        $response = json_decode($this->client
+            ->post($apiUrl, array('Content-Type' => 'application/json'), json_encode($this->getPayLoad($packageName)))
+            ->send()->getBody(true), true);
 
-        if (!$response['success']) {
+        if ($response['status'] !== 'success') {
             throw new Exception("Could not publish package!");
         }
 
@@ -64,11 +66,10 @@ class Publisher
 
     private function getApiUrl()
     {
-        return \GuzzleHttp\Psr7\uri_for("{$this->packagistUrl}api/update-package")
-            ->withQuery(http_build_query(array(
-                'username' => $this->userName,
-                'apiToken' => $this->apiToken,
-            )));
+        return Url::factory("{$this->packagistUrl}api/update-package")->setQuery(array(
+            'username' => $this->userName,
+            'apiToken' => $this->apiToken,
+        ));
     }
 
     private function getPayLoad($packageName)
