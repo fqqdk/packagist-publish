@@ -1,0 +1,25 @@
+{
+  "name": "fqqdk/packagist-publisher",
+  "type": "composer-plugin",
+  "description": "A handy composer script to be used to publish your package to packagist",
+  "require": {
+    "php": ">=5.3.0",
+    "guzzlehttp/guzzle": "^3.8",
+    "composer-plugin-api": "^1.1"
+  },
+  "require-dev": {
+    "composer/composer": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fqqdk\\Packagist\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "Fqqdk\\Packagist\\Plugin"
+  },
+  "scripts": {
+    "publish": "Fqqdk\\Packagist\\SelfPublisher::main"
+  },
+  "license": "MIT"
+}

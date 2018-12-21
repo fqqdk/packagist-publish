@@ -1,0 +1,16 @@
+{
+  "name": "fqqdk/packagist-publisher-test",
+  "require": {
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "fqqdk/packagist-publisher": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./../plugin"
+    }
+  ],
+  "license": "MIT"
+}
