@@ -13,6 +13,7 @@ class Command extends BaseCommand
 {
     protected function configure()
     {
+        $this->setName('publish');
         $this
             ->addArgument(
                 'username',
