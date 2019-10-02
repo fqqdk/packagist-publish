@@ -55,7 +55,7 @@ class Publisher
             ->post($this->getApiUrl(), array('json' => $this->getPayLoad($packageName)))
             ->getBody()->getContents(), true);
 
-        if (!$response['success']) {
+        if (!isset($response['status']) || $response['status'] != 'success') {
             throw new Exception("Could not publish package!");
         }
 
