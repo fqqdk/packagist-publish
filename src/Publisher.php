@@ -4,6 +4,7 @@ namespace Fqqdk\Packagist;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Utils;
 
 class Publisher
 {
@@ -64,7 +65,7 @@ class Publisher
 
     private function getApiUrl()
     {
-        return \GuzzleHttp\Psr7\uri_for("{$this->packagistUrl}api/update-package")
+        return Utils::uriFor("{$this->packagistUrl}api/update-package")
             ->withQuery(http_build_query(array(
                 'username' => $this->userName,
                 'apiToken' => $this->apiToken,
