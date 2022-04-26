@@ -37,7 +37,7 @@ class Command extends BaseCommand
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return void
+     * @return int
      * @throws \Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -45,6 +45,8 @@ class Command extends BaseCommand
         $packageName = $this->getComposer()->getPackage()->getName();
         $this->createPublisher($input)->updatePackage($packageName);
         $output->write("Successfully published package {$packageName}", true);
+
+        return 0;
     }
 
     private function createPublisher(InputInterface $input)
